@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Hardware</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Dropdown Contact Us */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left: 120px; /* نفس مسافة باقي الروابط */
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0,0,0,0.85);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      border-radius: 10px;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+    .dropdown-content a {
+      color: #00d9ff;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .dropdown-content a:hover {
+      background-color: #00d9ff;
+      color: #000;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Light / Dark Mode */
+    #mode-toggle {
+      cursor: pointer;
+      margin-left: 20px;
+      font-size: 1.3rem;
+      padding: 5px 12px;
+      border-radius: 12px;
+      border: 2px solid #00d9ff;
+      background-color: rgba(0,0,0,0.7);
+      color: #00d9ff;
+      transition: all 0.3s ease;
+    }
+    #mode-toggle:hover {
+      background-color: #00d9ff;
+      color: #000;
+    }
+
+    /* Light Mode Styles */
+    .light-mode {
+      background-color: #f7f7f7 !important;
+      color: #000 !important;
+    }
+    .light-mode .header {
+      background-color: rgba(255,255,255,0.9) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .light-mode .header nav a {
+      color: #0077cc !important;
+      text-shadow: none;
+    }
+    .light-mode .header h1 {
+      color: #0077cc !important;
+      text-shadow: none;
+    }
+    .light-mode .dropdown-content {
+      background-color: rgba(255,255,255,0.95);
+    }
+    .light-mode .dropdown-content a:hover {
+      background-color: #0077cc;
+      color: #fff;
+    }
+    .light-mode footer {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Responsive adjustments */
+    @media(max-width:768px){
+      .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      .header nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .dropdown {
+        margin-left: 0;
+      }
+      #mode-toggle {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="Imagess/channels4_profile.jpg" alt="Compare Hardware Logo">
+    <h1>Compare Hardware</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="analytics.html">Analytics</a>
+    <div class="dropdown">
+      <span class="dropbtn">Contact Us</span>
+      <div class="dropdown-content">
+        <a href="https://wa.me/201120597102" target="_blank">
+          <img src="Imagess/pngimg.com - whatsapp_PNG6.png" alt="WhatsApp"> WhatsApp
+        </a>
+        <a href="mailto:magdyymaherr@gmail.com">
+          <img src="Imagess/542689.png" alt="Email"> Email
+        </a>
+        <a href="tel:+201120597102">
+          <img src="Imagess/phone-98.png" alt="Phone"> Call
+        </a>
+      </div>
+    </div>
+  </nav>
+  <button id="mode-toggle" class="mode-btn">🌙</button>
+</header>
+
+<section class="hero">
+  <img src="Imagess/channels4_banner.jpg" alt="Cover Image" class="cover-img">
+  <div class="hero-text">
+    <h2>Discover the world of smart hardware in a way</h2>
+    <p>Your Arabic channel for understanding computer components without complication.</p>
+  </div>
+</section>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    <strong>Compare Hardware</strong> is a channel that provides hardware content, whether comparisons or useful information for computer enthusiasts.
+  </p>
+</section>
+<section class="projects">
+  <h2>Our Work & Projects</h2>
+  <div class="gallery">
+    <div class="project-item">
+      <img src="Imagess/حرارة-تحت-السيطرة.jpg" alt="Noctua Coolers">
+      <a href="https://youtu.be/c8bX7pISLKI" target="_blank">Noctua Coolers Review</a>
+    </div>
+    <div class="project-item">
+      <img src="Imagess/FFFF.jpg" alt="PC Bundle Msi">
+      <a href="https://youtu.be/PKslaW9NR54" target="_blank">PC Bundle Msi</a>
+    </div>
+    <div class="project-item">
+      <img src="Imagess/msi mag 244f Thumpnail 11.jpg" alt="Msi Mag 244f Monitor Review">
+      <a href="https://youtu.be/Np-3DRmhLUI" target="_blank">Msi Mag 244f</a>
+    </div>
+    <div class="project-item">
+      <img src="Imagess/maxresdefault.jpg" alt="Royal Kludge Video">
+      <a href="https://youtu.be/F9cK16zt-Po" target="_blank">RK S98</a>
+    </div>
+    <div class="project-item">
+      <img src="Imagess/maxresdefault (1).jpg" alt="Fifne K688 Video">
+      <a href="https://youtu.be/rNYlW5Up06w" target="_blank">Fifne K688</a>
+    </div>
+      <div class="project-item">
+      <img src="Imagess/Fifine thumpnail 3.jpg" alt="Fifine AM8 Vs K688">
+      <a href="https://youtu.be/ByNqR_Uc88g" target="_blank">Fifine AM8 Vs K688</a>
+    </div>
+  </div>
+</section>
+
+<section class="sponsors">
+  <h2>Our collaborations</h2>
+  <div class="sponsor-logos">
+    <img src="Imagess/Noctua_logo.jpg" alt="Noctua">
+    <img src="Imagess/2019-msi-dragon-spirit-logo-digital_v_4c_w.png" alt="MSI">
+    <img src="Imagess/271545670_3105337589732752_577-250x250.png" alt="Elbadr Groub">
+    <img src="Imagess/unnamed-file.png" alt="Fifine">
+    <img src="Imagess/Royal-Kludge-Logo-new.webp" alt="Royal Kludge">
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Follow Us</h2>
+  <div class="social-links">
+    <a href="https://www.youtube.com/@Compare_Hardware" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/compare_hardware" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@compare_hardware" target="_blank">TikTok</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Compare Hardware All rights reserved.</p>
+</footer>
+
+<script>
+  const modeToggle = document.getElementById('mode-toggle');
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    modeToggle.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
+  });
+  document.querySelectorAll("div").forEach((e)=>e.onclick = ()=> {if(window.location.hash) window.location.hash = ''});
+</script>
+<body class="light-mode">
+</body>
+</html>

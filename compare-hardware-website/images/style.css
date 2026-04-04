@@ -1,0 +1,494 @@
+/* ===================== عام ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  opacity: 0; /* عشان افكت الظهور */
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+body {
+  background-color: #141414;
+  color: #141414;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* ===================== Header ===================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 58px;
+  background-color: #141414;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px #141414;
+  flex-wrap: wrap;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header .logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header h1 {
+  font-weight: 800;
+  font-size: 1.9rem;
+  color: #00d9ff;
+  text-shadow: 0 0 8px rgba(0,217,255,0.6);
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* مسافة بين الروابط */
+  flex-wrap: wrap;
+}
+
+.header nav a, 
+.header .dropbtn {
+  color: #00d9ff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+  text-shadow: 0 0 6px rgba(0,217,255,0.6);
+  cursor: pointer;
+}
+
+.header nav a::after,
+.header .dropbtn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #00d9ff;
+  transition: width 0.3s;
+}
+
+.header nav a:hover::after,
+.header .dropbtn:hover::after {
+  width: 100%;
+}
+
+/* ===================== Dropdown ===================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: rgba(0,0,0,0.9);
+  min-width: 190px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,217,255,0.3);
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: #00d9ff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+.dropdown-content a img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0,217,255,0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===================== زر الوضع الليلي والفاتح ===================== */
+.mode-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #00d9ff;
+  text-shadow: 0 0 6px rgba(0,217,255,0.6);
+  transition: transform 0.3s;
+}
+
+.mode-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Light Mode */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+body.light-mode .header {
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+body.light-mode .header h1 {
+  color: #007ca1;
+  text-shadow: none;
+}
+
+body.light-mode nav a,
+body.light-mode .dropbtn {
+  color: #007ca1;
+  text-shadow: none;
+}
+
+body.light-mode .dropdown-content {
+  background-color: #fff;
+}
+
+body.light-mode .dropdown-content a {
+  color: #007ca1;
+}
+
+body.light-mode .dropdown-content a:hover {
+  background-color: rgba(0,124,161,0.1);
+}
+
+/* ===================== Hero ===================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cover-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.45);
+  transition: transform 1.5s ease;
+  animation: fadeIn 2s forwards 0.5s;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #00d9ff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(0,217,255,0.7);
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  color: #00d9ff;
+  text-shadow: 0 0 6px rgba(0,217,255,0.5);
+}
+
+/* ===================== Home Sections ===================== */
+.about, .projects, .contact {
+  max-width: 1000px;
+  margin: 90px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about h2, .projects h2, .contact h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  margin-bottom: 28px;
+  text-shadow: 0 0 8px rgba(0,217,255,0.5);
+}
+
+.about p {
+  font-size: 1.3rem;
+  color: #00d9ff;
+  text-shadow: 0 0 4px rgba(0,217,255,0.3);
+}
+
+/* ===================== Gallery ===================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.gallery h3 {
+  color: #00d9ff;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px rgba(0,217,255,0.4);
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,217,255,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  animation: fadeIn 1s forwards;
+}
+
+.gallery img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(0,217,255,0.6);
+}
+
+/* ===================== Projects Section ===================== */
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-item a {
+  color: #00d9ff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #00d9ff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0,217,255,0.5);
+}
+
+.project-item a:hover {
+  background-color: #00d9ff;
+  color: #000;
+}
+
+/* ===================== Sponsors ===================== */
+.sponsors {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.sponsors h2 {
+  color: #00d9ff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 28px;
+  text-shadow: 0 0 10px rgba(0,217,255,0.6);
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+}
+
+.sponsor-logos img {
+  width: 120px;
+  border-radius: 12px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s forwards 0.3s;
+}
+
+.sponsor-logos img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0,217,255,0.6);
+}
+
+/* ===================== Analytics ===================== */
+.analytics {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.analytics h2 {
+  font-size: 3.6rem;
+  color: #00d9ff;
+  text-align: center;
+  margin-bottom: 35px;
+  text-shadow: 0 0 10px rgba(0,217,255,0.6);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.stats .gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.stats .gallery h3 {
+  font-size: 1.8rem;
+  text-shadow: 0 0 6px rgba(0,217,255,0.5);
+}
+
+.stats .gallery img {
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,217,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+.stats .gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,217,255,0.7);
+}
+
+/* ===================== Lightbox ===================== */
+.gallery img, .stats .gallery img, .sponsor-logos img {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lightbox {
+  position: fixed;
+  display: none;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  align-self: flex-start;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+/* ===================== Social Links ===================== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  padding: 14px 24px;
+  color: #00d9ff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(0,217,255,0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInBox 0.8s forwards;
+}
+
+.social-links a:hover {
+  background-color: #00d9ff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,217,255,0.9);
+  transform: scale(1.08);
+}
+
+/* Fade in boxes animation with slight stagger */
+.social-links a:nth-child(1){ animation-delay: 0.3s; }
+.social-links a:nth-child(2){ animation-delay: 0.5s; }
+.social-links a:nth-child(3){ animation-delay: 0.7s; }
+.social-links a:nth-child(4){ animation-delay: 0.9s; }
+
+@keyframes fadeInBox {
+  0% { opacity: 0; transform: translateY(20px); }
+  60% { opacity: 1; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== Footer ===================== */
+footer {
+  text-align: center;
+  padding: 36px;
+  background-color: #000;
+  border-top: 1px solid #141414;
+  font-size: 1rem;
+  color: #444444;
+  text-shadow: 0 0 6px rgba(0,217,255,0.3);
+}
+
+/* ===================== Animations ===================== */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* ===================== تجاوب ===================== */
+@media(max-width:1024px){
+  .stats .gallery img { max-width: 450px; }
+  .sponsor-logos img { width: 150px; }
+}
+
+@media(max-width:768px){
+  .stats .gallery img { max-width: 320px; }
+  .stats .gallery h3 { font-size: 1.55rem; }
+  .analytics h2 { font-size: 3rem; }
+  .sponsor-logos img { width: 120px; }
+  .hero-text h2 { font-size: 2.4rem; }
+  .hero-text p { font-size: 1.2rem; }
+  .gallery { grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+  .stats { gap: 25px; }
+  .header nav { gap: 20px; justify-content: center; margin-top: 10px; }
+}
