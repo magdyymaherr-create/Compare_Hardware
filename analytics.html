@@ -109,7 +109,14 @@
     }
   </style>
 </head>
-<body class="light-mode">
+<body>
+  <script>
+    /* منع الوميض: فحص الثيم وتطبيقه فوراً قبل رندر عناصر الصفحة */
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+  </script>
+
 <header class="header">
   <div class="logo">
     <img src="Imagess/channels4_profile.jpg" alt="Compare Hardware Logo">
@@ -200,12 +207,32 @@
 </footer>
 
 <script>
-  const modeToggle = document.getElementById('mode-toggle');
-  modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    modeToggle.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
+  document.addEventListener("DOMContentLoaded", () => {
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // ضبط إيموجي الزرار بشكل صحيح بناءً على الوضع الحالي المخزن عند تحميل الصفحة
+    if (body.classList.contains('light-mode')) {
+      modeToggle.textContent = '🌞';
+    } else {
+      modeToggle.textContent = '🌙';
+    }
+
+    // تشغيل التبديل والحفظ الفوري بالاختيار الجديد
+    modeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      
+      if (body.classList.contains('light-mode')) {
+        modeToggle.textContent = '🌞';
+        localStorage.setItem("theme", "light");
+      } else {
+        modeToggle.textContent = '🌙';
+        localStorage.setItem("theme", "dark");
+      }
+    });
   });
-  document.querySelectorAll("div").forEach((e)=>e.onclick = ()=> {if(window.location.hash) window.location.hash = ''});
+
+  document.querySelectorAll("div").forEach((e) => e.onclick = () => { if (window.location.hash) window.location.hash = '' });
 </script>
 </body>
 </html>

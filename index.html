@@ -107,6 +107,12 @@
   </style>
 </head>
 <body>
+  <script>
+    /* منع الوميض: فحص الثيم وتطبيقه فوراً قبل رندر عناصر الصفحة */
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+    }
+  </script>
 
 <header class="header">
   <div class="logo">
@@ -116,7 +122,7 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="analytics.html">Analytics</a>
-<div class="dropdown">
+    <div class="dropdown">
       <span class="dropbtn">Contact Us ▼</span>
       <div class="dropdown-content">
         <a href="https://wa.me/201120597102" target="_blank">
@@ -148,6 +154,7 @@
     <strong>Compare Hardware</strong> is a channel that provides hardware content, whether comparisons or useful information for computer enthusiasts.
   </p>
 </section>
+
 <section class="projects">
   <h2>Our Work & Projects</h2>
   <div class="gallery">
@@ -155,7 +162,7 @@
       <img src="Imagess/حرارة-تحت-السيطرة.jpg" alt="Noctua U14S & C14S Review">
       <a href="https://youtu.be/c8bX7pISLKI" target="_blank">Noctua U14S & C14S</a>
     </div>
-      <div class="project-item">
+    <div class="project-item">
       <img src="Imagess/thumbnail ي.jpg" alt="Noctua D15 G1 Review">
       <a href="https://youtu.be/qn8TLXRzlqY" target="_blank">Noctua D15 G1</a>
     </div>
@@ -168,6 +175,10 @@
       <a href="https://youtu.be/Np-3DRmhLUI" target="_blank">Msi Mag 244f</a>
     </div>
     <div class="project-item">
+      <img src="Imagess/thumbnail.png" alt="Thermalgrizzly Thermal Pastes Reviews">
+      <a href="https://youtu.be/ZjKkWoNNhyQ" target="_blank">Thermalgrizzly Thermal pastes</a>
+    </div>
+    <div class="project-item">
       <img src="Imagess/maxresdefault.jpg" alt="Royal Kludge S98 Review">
       <a href="https://youtu.be/F9cK16zt-Po" target="_blank">RK S98</a>
     </div>
@@ -175,7 +186,7 @@
       <img src="Imagess/maxresdefault (1).jpg" alt="Fifne K688 Review">
       <a href="https://youtu.be/rNYlW5Up06w" target="_blank">Fifne K688</a>
     </div>
-      <div class="project-item">
+    <div class="project-item">
       <img src="Imagess/Fifine thumpnail 3.jpg" alt="Fifine AM8 Vs K688">
       <a href="https://youtu.be/ByNqR_Uc88g" target="_blank">Fifine AM8 Vs K688</a>
     </div>
@@ -185,6 +196,7 @@
 <section class="sponsors">
   <h2>Our collaborations</h2>
   <div class="sponsor-logos">
+    <img src="Imagess/ThermalGrizzly_Logo_Orange_EN.png" alt="Thermalgrizzly">
     <img src="Imagess/Noctua_logo.jpg" alt="Noctua">
     <img src="Imagess/2019-msi-dragon-spirit-logo-digital_v_4c_w.png" alt="MSI">
     <img src="Imagess/271545670_3105337589732752_577-250x250.png" alt="Elbadr Groub">
@@ -207,13 +219,32 @@
 </footer>
 
 <script>
-  const modeToggle = document.getElementById('mode-toggle');
-  modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    modeToggle.textContent = document.body.classList.contains('light-mode') ? '🌞' : '🌙';
+  document.addEventListener("DOMContentLoaded", () => {
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // ضبط إيموجي الزرار بشكل صحيح بناءً على الوضع الحالي المخزن عند التحميل
+    if (body.classList.contains('light-mode')) {
+      modeToggle.textContent = '🌞';
+    } else {
+      modeToggle.textContent = '🌙';
+    }
+
+    // تشغيل التبديل والحفظ الفوري بالاختيار الجديد
+    modeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      
+      if (body.classList.contains('light-mode')) {
+        modeToggle.textContent = '🌞';
+        localStorage.setItem("theme", "light");
+      } else {
+        modeToggle.textContent = '🌙';
+        localStorage.setItem("theme", "dark");
+      }
+    });
   });
-  document.querySelectorAll("div").forEach((e)=>e.onclick = ()=> {if(window.location.hash) window.location.hash = ''});
+
+  document.querySelectorAll("div").forEach((e) => e.onclick = () => { if (window.location.hash) window.location.hash = '' });
 </script>
-<body class="light-mode">
 </body>
 </html>
